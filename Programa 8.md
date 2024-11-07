@@ -5,7 +5,7 @@
 
 
 ## Descripción
-
+Calcula y muestra los primeros N términos de la secuencia de Fibonacci
 ## Programa en C
     
     #include <stdio.h>
