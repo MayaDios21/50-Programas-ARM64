@@ -14,14 +14,38 @@ Este programa Suma de los N primeros números naturales en ensamblador arm64
     // Autor: Diego Enrique Maya Lopez
     // Fecha: 6/11/2024
     //============================================================
-    // Suma en C:
-    // int sumaNaturales(int n) {
-    //     int suma = 0;
-    //     for(int i = 1; i <= n; i++) {
-    //         suma += i;
-    //     }
-    //     return suma;
-    // }
+     #include <stdio.h>
+    #include <stdint.h>
+
+    int main() {
+    int64_t n = 0;
+    int64_t result = 0;
+    int64_t i = 1;
+
+    // Solicitar al usuario el número de términos (N) para sumar
+    printf("Ingrese el número de términos a sumar (N): ");
+    if (scanf("%ld", &n) != 1) {
+        printf("Error al leer el número\n");
+        return 1;
+    }
+
+    // Verificar que N sea un número positivo
+    if (n <= 0) {
+        printf("Error: Por favor ingrese un número positivo\n");
+        return 1;
+    }
+
+    // Calcular la suma de los primeros N números
+    for (i = 1; i <= n; ++i) {
+        result += i;
+    }
+
+    // Imprimir el resultado de la suma
+    printf("La suma de los primeros %ld números es: %ld\n", n, result);
+
+    return 0;
+    }
+
 
 ## Programa en arm64
       .data
