@@ -2,7 +2,7 @@
 # Programa 8 Serie fibonacci
 
 ## Video
-
+https://asciinema.org/a/WOf0uVXBs7WIT8htjmR0dfaAf
 
 ## Descripción
 Calcula y muestra los primeros N términos de la secuencia de Fibonacci
