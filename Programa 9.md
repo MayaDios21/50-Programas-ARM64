@@ -5,7 +5,7 @@
 https://asciinema.org/a/RNpAUvGuSM5cRPXjUjlDqz2an
 
 ## Descripción
-Calcula y muestra los primeros N términos de la secuencia de Fibonacci
+Al introducir solo un numero verifica si este es un numero primo o no
 ## Programa en C
     //============================================================
     // Programa: Verificar si un número es primo
