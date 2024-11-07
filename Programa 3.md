@@ -16,7 +16,7 @@ Este programa resta 2 numeros utilizando ensamblador ARM64.
     //============================================================
     // Suma en C:
     // int sumar(int num1, int num2) {
-    //     return num1 + num2;
+    //     return num1 - num2;
     // }
 ## Programa en arm64
      .section .data
