@@ -1,4 +1,4 @@
-#Diego Enrique Maya Lopez
+# Diego Enrique Maya Lopez
 # Programa 3 Resta de dos números
 
 ## Video
