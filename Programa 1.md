@@ -1,17 +1,17 @@
 # Programa 1 Convertir temperatura de Celsius a Fahrenheit
 
 ## Video
-
+https://asciinema.org/a/H9xTnqiJh8KSvgZPrP3HYVzgK
 
 ## Descripción
 Este programa convierte una temperatura dada en grados Celsius a Fahrenheit utilizando ensamblador ARM64.
 
 ## Código en C
 ```c
-// Conversión en C:
-float celsius_a_fahrenheit(float celsius) {
+    // Conversión en C:
+    float celsius_a_fahrenheit(float celsius) {
     return (celsius * 9.0 / 5.0) + 32.0;
-}
+    }
 
 
 ## Código en ARM64
@@ -19,40 +19,74 @@ float celsius_a_fahrenheit(float celsius) {
 //============================================================
 // Programa: Conversion Celsius a Fahrenheit en ARM64
 // Descripción: Convierte una temperatura dada en grados Celsius a Fahrenheit
-// Autor: [Tu Nombre]
-// Fecha: [Fecha]
+// Autor: [Diego Enrique Maya Lopez]
+// Fecha: [06/11/24]
 //============================================================
 
-.section .data
-input_celsius: .float 25.0    // Temperatura en Celsius de ejemplo (modifica según necesidad)
-result_fahrenheit: .float 0.0  // Resultado en Fahrenheit
+.data
+prompt:     .string "Ingresa la temperatura en Celsius: "
+scan_fmt:   .string "%f"                    // Formato para scanf
+print_fmt:  .string "%.2f°C = %.2f°F\n"    // Formato para printf
+celsius:    .single 0.0                     // Variable para guardar entrada
+fahrenheit: .single 0.0                     // Variable para resultado
 
-.section .text
-.global _start
+// Constantes para el cálculo
+const_nine:      .single 9.0
+const_five:      .single 5.0
+const_thirtytwo: .single 32.0
 
-_start:
-    // Cargar el valor de Celsius en el registro de coma flotante s0
-    ldr s0, =input_celsius
-    ldr s0, [s0]
+.text
+.global main
+main:
+    // Prólogo
+    stp     x29, x30, [sp, #-16]!    // Guardar frame pointer y link register
+    mov     x29, sp                   // Establecer frame pointer
 
-    // Multiplicar celsius por 9.0 (s0 = s0 * 9.0)
-    fmov s1, #9.0
-    fmul s0, s0, s1
+    // Mostrar prompt
+    adr     x0, prompt
+    bl      printf
 
-    // Dividir el resultado por 5.0 (s0 = s0 / 5.0)
-    fmov s1, #5.0
-    fdiv s0, s0, s1
+    // Leer temperatura en Celsius
+    adr     x0, scan_fmt             // Formato para scanf
+    adr     x1, celsius              // Dirección donde guardar el valor
+    bl      scanf
 
-    // Sumar 32.0 al resultado (s0 = s0 + 32.0)
-    fmov s1, #32.0
-    fadd s0, s0, s1
+    // Cargar valor ingresado y constantes
+    adr     x0, celsius
+    ldr     s0, [x0]                 // Cargar temperatura Celsius
+    
+    adr     x0, const_nine
+    ldr     s1, [x0]                 // Cargar 9.0
+    
+    adr     x0, const_five
+    ldr     s2, [x0]                 // Cargar 5.0
+    
+    adr     x0, const_thirtytwo
+    ldr     s3, [x0]                 // Cargar 32.0
 
-    // Guardar el resultado en la variable result_fahrenheit
-    ldr x1, =result_fahrenheit
-    str s0, [x1]
+    // Realizar el cálculo: (C * 9/5) + 32
+    fmul    s0, s0, s1               // Multiplicar por 9
+    fdiv    s0, s0, s2               // Dividir por 5
+    fadd    s0, s0, s3               // Sumar 32
 
-    // Finalizar el programa
-    mov x0, #0      // status 0
-    mov x8, #93     // syscall exit en ARM64
-    svc 0
+    // Guardar resultado
+    adr     x0, fahrenheit
+    str     s0, [x0]
+
+    // Preparar argumentos para printf
+    adr     x0, print_fmt            // Formato para imprimir
+    adr     x1, celsius        
+    ldr     s0, [x1]                 // Cargar valor Celsius
+    fcvt    d0, s0                   // Convertir a double para printf
+    adr     x1, fahrenheit
+    ldr     s1, [x1]                 // Cargar resultado Fahrenheit
+    fcvt    d1, s1                   // Convertir a double para printf
+    
+    // Imprimir resultado
+    bl      printf
+
+    // Epílogo y retorno
+    mov     w0, #0                   // Código de retorno 0
+    ldp     x29, x30, [sp], #16      // Restaurar frame pointer y link register
+    ret
 
