@@ -1,7 +1,8 @@
+# Diego Enrique Maya Lopez
 # Programa 6 Suma de los N primeros números naturales
 
 ## Video
-
+https://asciinema.org/a/xQpiFfOruciTtH1Tkz2ORlPZb
 
 ## Descripción
 Este programa Suma de los N primeros números naturales en ensamblador arm64
