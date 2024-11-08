@@ -1,42 +1,41 @@
-Diego Enrique Maya Lopez
-Programa 1 Convertir temperatura de Celsius a Fahrenheit
-Video
+## Diego Enrique Maya Lopez
+## Programa 1 Convertir temperatura de Celsius a Fahrenheit
+## Video
 https://asciinema.org/a/H9xTnqiJh8KSvgZPrP3HYVzgK
 
- Descripción
+## Descripción
 Este programa convierte una temperatura dada en grados Celsius a Fahrenheit utilizando ensamblador ARM64.
 
- Código en C
+ ## Código en C
     // Conversión en C:
     float celsius_a_fahrenheit(float celsius) {
     return (celsius * 9.0 / 5.0) + 32.0;
     }
 
+## Código en ARM64
 
-Código en ARM64
+     //============================================================
+    // Programa: Conversion Celsius a Fahrenheit en ARM64
+    // Descripción: Convierte una temperatura dada en grados Celsius a Fahrenheit
+    // Autor: [Diego Enrique Maya Lopez]
+    // Fecha: [06/11/24]
+    //============================================================
 
-//============================================================
-// Programa: Conversion Celsius a Fahrenheit en ARM64
-// Descripción: Convierte una temperatura dada en grados Celsius a Fahrenheit
-// Autor: [Diego Enrique Maya Lopez]
-// Fecha: [06/11/24]
-//============================================================
+    .data
+    prompt:     .string "Ingresa la temperatura en Celsius: "
+    scan_fmt:   .string "%f"                    // Formato para scanf
+    print_fmt:  .string "%.2f°C = %.2f°F\n"    // Formato para printf
+    celsius:    .single 0.0                     // Variable para guardar entrada
+    fahrenheit: .single 0.0                     // Variable para resultado
 
-.data
-prompt:     .string "Ingresa la temperatura en Celsius: "
-scan_fmt:   .string "%f"                    // Formato para scanf
-print_fmt:  .string "%.2f°C = %.2f°F\n"    // Formato para printf
-celsius:    .single 0.0                     // Variable para guardar entrada
-fahrenheit: .single 0.0                     // Variable para resultado
+    // Constantes para el cálculo
+    const_nine:      .single 9.0
+    const_five:      .single 5.0
+    const_thirtytwo: .single 32.0
 
-// Constantes para el cálculo
-const_nine:      .single 9.0
-const_five:      .single 5.0
-const_thirtytwo: .single 32.0
-
-.text
-.global main
-main:
+    .text
+    .global main
+    main:
     // Prólogo
     stp     x29, x30, [sp, #-16]!    // Guardar frame pointer y link register
     mov     x29, sp                   // Establecer frame pointer
