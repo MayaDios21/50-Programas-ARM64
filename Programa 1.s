@@ -1,21 +1,19 @@
-# Diego Enrique Maya Lopez
-# Programa 1 Convertir temperatura de Celsius a Fahrenheit
-
-## Video
+Diego Enrique Maya Lopez
+Programa 1 Convertir temperatura de Celsius a Fahrenheit
+Video
 https://asciinema.org/a/H9xTnqiJh8KSvgZPrP3HYVzgK
 
-## Descripción
+ Descripción
 Este programa convierte una temperatura dada en grados Celsius a Fahrenheit utilizando ensamblador ARM64.
 
-## Código en C
-```c
+ Código en C
     // Conversión en C:
     float celsius_a_fahrenheit(float celsius) {
     return (celsius * 9.0 / 5.0) + 32.0;
     }
 
 
-## Código en ARM64
+Código en ARM64
 
 //============================================================
 // Programa: Conversion Celsius a Fahrenheit en ARM64
