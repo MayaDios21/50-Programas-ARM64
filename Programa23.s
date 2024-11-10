@@ -43,7 +43,7 @@
 // }
 
 
-// int_to_ascii.s
+
 .global main
 .data
     // Mensajes y buffers
