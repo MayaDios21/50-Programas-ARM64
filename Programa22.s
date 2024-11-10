@@ -2,7 +2,7 @@
 // Programa: Conversión de ASCII a entero
 // Descripción: Pide un número de hasta 5 dígitos, verifica que sólo contenga dígitos, convierte la cadena ingresada en un número entero, y muestra el resultado. Si hay caracteres inválidos, muestra un mensaje de error.
 // Autor: Diego Enrique Maya Lopez
-// Fecha: 07/11/2024
+// Fecha: 09/11/2024
 // Video: https://asciinema.org/a/X1CYkku6cy4eNTu1y33bxMyEF
 //============================================================
 
