@@ -3,6 +3,6 @@
     // Descripción: 
     // Autor: Diego Enrique Maya Lopez
     // Fecha: 07/11/2024
-    //Video:
+    // Video:
     //============================================================
  
