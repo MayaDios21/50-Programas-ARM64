@@ -1,27 +1,16 @@
-## Diego Enrique Maya Lopez
-## Programa 1 Convertir temperatura de Celsius a Fahrenheit
-## Video
-https://asciinema.org/a/H9xTnqiJh8KSvgZPrP3HYVzgK
-
-## Descripción
-Este programa convierte una temperatura dada en grados Celsius a Fahrenheit utilizando ensamblador ARM64.
-
- ## Código en C
-    // Conversión en C:
-    float celsius_a_fahrenheit(float celsius) {
-    return (celsius * 9.0 / 5.0) + 32.0;
-    }
-
-## Código en ARM64
-
-     //============================================================
+    //============================================================
     // Programa: Conversion Celsius a Fahrenheit en ARM64
     // Descripción: Convierte una temperatura dada en grados Celsius a Fahrenheit
     // Autor: [Diego Enrique Maya Lopez]
     // Fecha: [06/11/24]
+    // Video: https://asciinema.org/a/H9xTnqiJh8KSvgZPrP3HYVzgK
     //============================================================
+    // Conversión en C:
+    //float celsius_a_fahrenheit(float celsius) {
+    // return (celsius * 9.0 / 5.0) + 32.0;
+    // }
 
-    .data
+   .data
     prompt:     .string "Ingresa la temperatura en Celsius: "
     scan_fmt:   .string "%f"                    // Formato para scanf
     print_fmt:  .string "%.2f°C = %.2f°F\n"    // Formato para printf
@@ -33,14 +22,14 @@ Este programa convierte una temperatura dada en grados Celsius a Fahrenheit util
     const_five:      .single 5.0
     const_thirtytwo: .single 32.0
 
-    .text
+   .text
     .global main
     main:
     // Prólogo
     stp     x29, x30, [sp, #-16]!    // Guardar frame pointer y link register
     mov     x29, sp                   // Establecer frame pointer
 
-    // Mostrar prompt
+   // Mostrar prompt
     adr     x0, prompt
     bl      printf
 
