@@ -1,9 +1,3 @@
-
-https://asciinema.org/a/JVGHkbUAreFVhDk9MVPgGU3sm
-
-## Descripcion 
-Al introducir un texto este lo invertira de tal manera que si escribe "Hola" se entregara como "aloH"
-## Programa en C
     //============================================================
     // Programa: Invertir una cadena
     // Descripción: Invierte una cadena de texto
@@ -11,7 +5,7 @@ Al introducir un texto este lo invertira de tal manera que si escribe "Hola" se 
     // Fecha: 07/11/2024
     // Video: https://asciinema.org/a/JVGHkbUAreFVhDk9MVPgGU3sm
     //============================================================
-  // #include <stdio.h> // Biblioteca para funciones de entrada y salida
+// #include <stdio.h> // Biblioteca para funciones de entrada y salida
 // #include <string.h> // Biblioteca para manipulación de cadenas
 
 // int main() { // Función principal
