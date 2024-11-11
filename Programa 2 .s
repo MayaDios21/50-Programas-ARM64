@@ -1,25 +1,15 @@
-# Diego Enrique Maya Lopez
-# Programa 2 Suma de dos números
-
-## Video
-https://asciinema.org/a/eVMzFM4YJEH1hfbtJwrY7vcvH
-
-## Descripción
-Este programa suma 2 numeros utilizando ensamblador ARM64.
-
-## Programa en C
-
     //============================================================
     // Programa: Suma en ARM64
     // Descripción: Suma dos números definidos en la sección de datos
     // Autor: Claude Assistant
     // Fecha: 6/11/2024
+    // Video: https://asciinema.org/a/eVMzFM4YJEH1hfbtJwrY7vcvH
     //============================================================
     // Suma en C:
     // int sumar(int num1, int num2) {
     //     return num1 + num2;
     // }
-## Programa en arm64
+
     .section .data
     .data
     prompt1:    .string "Ingrese el primer número: "
