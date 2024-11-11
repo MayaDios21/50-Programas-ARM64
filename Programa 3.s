@@ -1,25 +1,17 @@
-# Diego Enrique Maya Lopez
-# Programa 3 Resta de dos números
 
-## Video
-https://asciinema.org/a/c9zeTyI0gc7KDRrNw631gnkRm
-
-## Descripción
-Este programa resta 2 numeros utilizando ensamblador ARM64.
-
-## Programa en C
 
     //============================================================
     // Programa: Resta en ARM64
     // Descripción: Resta dos números 
     // Autor: Diego Enrique Maya Lopez
     // Fecha: 6/11/2024
+    // Video: https://asciinema.org/a/c9zeTyI0gc7KDRrNw631gnkRm
     //============================================================
     // Suma en C:
     // int sumar(int num1, int num2) {
     //     return num1 - num2;
     // }
-## Programa en arm64
+
     .data
     prompt1:    .string "Ingrese el primer número: "
     prompt2:    .string "Ingrese el segundo número: "
