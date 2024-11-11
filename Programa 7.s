@@ -1,57 +1,53 @@
-# Diego Enrique Maya Lopez
-# Programa 7 Factorial de un número
 
-## Video
-https://asciinema.org/a/FgEYYaHyvGEuLpCEMRw2kth1W
-
-## Descripción
-Este programa calcula el factorial de un número dado, con verificación para evitar el desbordamiento de enteros y para asegurar que el número es no negativo.
-## Programa en C
 
     //============================================================
     // Programa: Suma de los N primeros números naturales en ARM64
     // Descripción: Calcula el factorial de un número dado
     // Autor: Diego Enrique Maya Lopez
     // Fecha: 07/11/2024
+    // Video: https://asciinema.org/a/FgEYYaHyvGEuLpCEMRw2kth1W
     //============================================================
-    #include <stdio.h>
-    #include <stdint.h>
-    #include <limits.h>
+  
+   // #include <stdio.h>      // Biblioteca estándar para funciones de entrada y salida
+// #include <stdint.h>     // Biblioteca para tipos de datos de tamaño específico como int64_t
+// #include <limits.h>     // Biblioteca para definir límites de tipos de datos, como LLONG_MAX
 
-    int main() {
-    int64_t num = 0;
-    int64_t result = 1;
-    int64_t i = 1;
+// int main() { // Función principal del programa
+//     int64_t num = 0;      // Variable para almacenar el número del que se calculará el factorial
+//     int64_t result = 1;   // Variable para almacenar el resultado del factorial, inicializada en 1
+//     int64_t i = 1;        // Variable de control para el bucle, comenzando en 1
 
-    // Solicitar al usuario el número para calcular su factorial
-    printf("Ingrese un número para calcular su factorial: ");
-    if (scanf("%ld", &num) != 1) {
-        printf("Error al leer el número\n");
-        return 1;
-    }
+//     // Solicitar al usuario el número para calcular su factorial
+//     printf("Ingrese un número para calcular su factorial: "); // Mensaje pidiendo el número al usuario
+//     if (scanf("%ld", &num) != 1) { // Leer el número desde el teclado; verifica si la entrada es válida
+//         printf("Error al leer el número\n"); // Mensaje de error si no se pudo leer correctamente
+//         return 1; // Finaliza el programa con un código de error
+//     }
 
-    // Verificar que el número no sea negativo
-    if (num < 0) {
-        printf("Error: Por favor ingrese un número no negativo\n");
-        return 1;
-    }
+//     // Verificar que el número no sea negativo
+//     if (num < 0) { // Condición para asegurar que el número ingresado es no negativo
+//         printf("Error: Por favor ingrese un número no negativo\n"); // Mensaje de error si el número es negativo
+//         return 1; // Finaliza el programa con un código de error
+//     }
 
-    // Calcular el factorial, con verificación de desbordamiento
-    for (i = 1; i <= num; ++i) {
-        // Comprobar si la multiplicación causaría un desbordamiento
-        if (result > LLONG_MAX / i) {
-            printf("Error: El resultado es demasiado grande\n");
-            return 1;
-        }
-        result *= i;
-    }
+//     // Calcular el factorial, con verificación de desbordamiento
+//     for (i = 1; i <= num; ++i) { // Bucle para calcular el factorial multiplicando desde 1 hasta num
+//         // Comprobar si la multiplicación causaría un desbordamiento
+//         if (result > LLONG_MAX / i) { // Verificación para evitar desbordamiento en la multiplicación
+//             printf("Error: El resultado es demasiado grande\n"); // Mensaje de error si hay riesgo de desbordamiento
+//             return 1; // Finaliza el programa con un código de error
+//         }
+//         result *= i; // Multiplica result por el valor de i en cada iteración
+//     }
 
-    // Imprimir el resultado del factorial
-    printf("El factorial de %ld es: %ld\n", num, result);
-    return 0;
-    }
+//     // Imprimir el resultado del factorial
+//     printf("El factorial de %ld es: %ld\n", num, result); // Muestra el resultado del factorial
 
-## Programa en arm64
+//     return 0; // Finaliza el programa correctamente
+// }
+
+
+
 
     .data
     prompt:     .string "Ingrese un número para calcular su factorial: "
