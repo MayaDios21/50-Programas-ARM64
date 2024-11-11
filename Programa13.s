@@ -1,49 +1,45 @@
-## Diego Enrique Maya Lopez 
-## Programa 13 Encuentra el minimo en un arreglo
 
-## Video
-
-
-## Descripcion 
-En un arreglo de numeros no ordenados encuentra el numero menor entre ellos
-
-## Programa en C
     //============================================================
-    // Programa: 
-    // Descripción: 
+    // Programa: Encuentra el minimo en un arreglo
+    // Descripción: En un arreglo enceuntra el numeri menor de los que se ingresan
     // Autor: Diego Enrique Maya Lopez
     // Fecha: 07/11/2024
-    #include <stdio.h>
-    int main() {
-    // Inicializar el arreglo y su longitud
-    long arreglo[] = {15, 7, 23, 9, 12, 3, 18, 45, 6, 11};
-    int longitud = 10;
-
-    // Imprimir mensaje inicial
-    printf("Arreglo: ");
+    // Video: 
+    //============================================================
     
-    // Imprimir todos los elementos del arreglo
-    for (int i = 0; i < longitud; i++) {
-        printf("%ld ", arreglo[i]);
-    }
-    printf("\n");
+// #include <stdio.h> // Biblioteca estándar para funciones de entrada y salida
 
-    // Encontrar el mínimo
-    long minimo = arreglo[0];
-    for (int i = 1; i < longitud; i++) {
-        if (arreglo[i] < minimo) {
-            minimo = arreglo[i];
-        }
-    }
+// int main() { // Función principal
 
-    // Imprimir el mínimo
-    printf("\nEl mínimo es: %ld\n", minimo);
+//     // Inicializar el arreglo con valores específicos y su longitud
+//     long arreglo[] = {15, 7, 23, 9, 12, 3, 18, 45, 6, 11}; // Arreglo de números
+//     int longitud = 10; // Longitud del arreglo (10 elementos)
 
-    return 0;
-    }
+//     // Imprimir mensaje inicial
+//     printf("Arreglo: "); // Mensaje para indicar los elementos del arreglo
+    
+//     // Imprimir todos los elementos del arreglo
+//     for (int i = 0; i < longitud; i++) { // Bucle para recorrer el arreglo
+//         printf("%ld ", arreglo[i]); // Imprimir cada elemento seguido de un espacio
+//     }
+//     printf("\n"); // Nueva línea después de imprimir todos los elementos
+
+//     // Encontrar el valor mínimo en el arreglo
+//     long minimo = arreglo[0]; // Inicializar 'minimo' con el primer elemento del arreglo
+//     for (int i = 1; i < longitud; i++) { // Recorrer el arreglo desde el segundo elemento
+//         if (arreglo[i] < minimo) { // Comparar cada elemento con el mínimo actual
+//             minimo = arreglo[i]; // Actualizar el mínimo si el actual es menor
+//         }
+//     }
+
+//     // Imprimir el valor mínimo encontrado en el arreglo
+//     printf("\nEl mínimo es: %ld\n", minimo); // Mensaje para mostrar el valor mínimo
+
+//     return 0; // Finalizar el programa correctamente
+// }
 
 
-## Programa en ARM64   
+  
     .data
     arreglo:    .quad   15, 7, 23, 9, 12, 3, 18, 45, 6, 11  // Arreglo de números
     longitud:   .quad   10                                   // Longitud del arreglo
