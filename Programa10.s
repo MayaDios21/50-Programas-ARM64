@@ -1,7 +1,4 @@
-## Diego Enrique Maya Lopez 
-## Programa 10 Invertir una cadena
 
-## Video
 https://asciinema.org/a/JVGHkbUAreFVhDk9MVPgGU3sm
 
 ## Descripcion 
@@ -12,33 +9,35 @@ Al introducir un texto este lo invertira de tal manera que si escribe "Hola" se 
     // Descripción: Invierte una cadena de texto
     // Autor: Diego Enrique Maya Lopez
     // Fecha: 07/11/2024
-    #include <stdio.h>
-    #include <string.h>
+    // Video: https://asciinema.org/a/JVGHkbUAreFVhDk9MVPgGU3sm
+    //============================================================
+  // #include <stdio.h> // Biblioteca para funciones de entrada y salida
+// #include <string.h> // Biblioteca para manipulación de cadenas
 
-    int main() {
-    char str[256];
+// int main() { // Función principal
+//     char str[256]; // Declaración de un arreglo de caracteres para la cadena de texto
 
-    // Solicitar la cadena de texto
-    printf("Ingresa una cadena de texto: ");
-    scanf("%255s", str);
+//     // Solicitar la cadena de texto al usuario
+//     printf("Ingresa una cadena de texto: ");
+//     scanf("%255s", str); // Leer la cadena, con un límite de 255 caracteres para evitar desbordamiento
 
-    // Encontrar el final de la cadena (longitud)
-    int length = strlen(str);
+//     // Encontrar el final de la cadena (longitud de la cadena)
+//     int length = strlen(str); // Usar strlen para obtener la longitud de la cadena
 
-    // Invertir la cadena
-    for (int i = 0, j = length - 1; i < j; i++, j--) {
-        // Intercambiar los caracteres en las posiciones i y j
-        char temp = str[i];
-        str[i] = str[j];
-        str[j] = temp;
-    }
+//     // Invertir la cadena
+//     for (int i = 0, j = length - 1; i < j; i++, j--) { // Bucle para recorrer desde ambos extremos
+//         // Intercambiar los caracteres en las posiciones i y j
+//         char temp = str[i]; // Guardar temporalmente el carácter en la posición i
+//         str[i] = str[j]; // Colocar el carácter de j en i
+//         str[j] = temp; // Colocar el carácter temporal en j
+//     }
 
-    // Imprimir la cadena invertida
-    printf("La cadena invertida es: %s\n", str);
+//     // Imprimir la cadena invertida
+//     printf("La cadena invertida es: %s\n", str); // Mostrar la cadena después de invertirla
 
-    return 0;
-    }
-## Porgrama en ARM64
+//     return 0; // Finalizar el programa
+// }
+
 
     .data
     msg_prompt: .asciz "Ingresa una cadena de texto: " // Mensaje para solicitar la cadena
