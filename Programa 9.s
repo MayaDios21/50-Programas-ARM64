@@ -1,46 +1,42 @@
-# Diego Enrique Maya Lopez
-# Programa 9 Verificar si un número es primo
 
-## Video
-https://asciinema.org/a/RNpAUvGuSM5cRPXjUjlDqz2an
-
-## Descripción
-Al introducir solo un numero verifica si este es un numero primo o no
-## Programa en C
     //============================================================
     // Programa: Verificar si un número es primo
     // Descripción: Se verfica si el numero introducido es primo
     // Autor: Diego Enrique Maya Lopez
     // Fecha: 07/11/2024
-    #include <stdio.h>
+    // Video: https://asciinema.org/a/RNpAUvGuSM5cRPXjUjlDqz2an
+    //============================================================
+   // #include <stdio.h> // Biblioteca estándar para funciones de entrada y salida
 
-    int is_prime(int number) {
-    if (number <= 1)
-        return 0; // No es primo si es 1 o menos
-    for (int i = 2; i * i <= number; i++) {
-        if (number % i == 0)
-            return 0; // No es primo si es divisible por i
-    }
-    return 1; // Es primo
-    }
+// int is_prime(int number) { // Función para verificar si un número es primo
+//     if (number <= 1)
+//         return 0; // No es primo si es 1 o menos
 
-    int main() {
-    int number;
+//     for (int i = 2; i * i <= number; i++) { // Bucle para verificar divisibilidad
+//         if (number % i == 0)
+//             return 0; // No es primo si es divisible por i
+//     }
+//     return 1; // Es primo si no se encontraron divisores
+// }
 
-    // Solicitar al usuario que ingrese un número
-    printf("Enter a number: ");
-    scanf("%d", &number);
+// int main() { // Función principal
+//     int number; // Variable para almacenar el número ingresado por el usuario
 
-    // Verificar si es primo e imprimir el resultado
-    if (is_prime(number))
-        printf("%d is a prime number.\n", number);
-    else
-        printf("%d is not a prime number.\n", number);
+//     // Solicitar al usuario que ingrese un número
+//     printf("Enter a number: ");
+//     scanf("%d", &number); // Leer el número ingresado por el usuario
 
-    return 0;
-    }
+//     // Verificar si es primo e imprimir el resultado
+//     if (is_prime(number)) // Llamar a la función is_prime para verificar
+//         printf("%d is a prime number.\n", number); // Imprimir si es primo
+//     else
+//         printf("%d is not a prime number.\n", number); // Imprimir si no es primo
 
-## Programa ARM64
+//     return 0; // Terminar el programa
+// }
+
+
+
 
     .data
     msg_prompt_n: .asciz "Ingresa un número para verificar si es primo: " // Mensaje para solicitar N
