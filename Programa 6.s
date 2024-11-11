@@ -1,53 +1,46 @@
-# Diego Enrique Maya Lopez
-# Programa 6 Suma de los N primeros números naturales
 
-## Video
-https://asciinema.org/a/xQpiFfOruciTtH1Tkz2ORlPZb
-
-## Descripción
-Este programa Suma de los N primeros números naturales en ensamblador arm64
-## Programa en C
 
     //============================================================
     // Programa: Suma de los N primeros números naturales en ARM64
     // Descripción: Suma los primeros N números naturales usando un bucle
     // Autor: Diego Enrique Maya Lopez
     // Fecha: 6/11/2024
+    // Video: https://asciinema.org/a/xQpiFfOruciTtH1Tkz2ORlPZb
     //============================================================
-     #include <stdio.h>
-    #include <stdint.h>
+    // #include <stdio.h>      // Biblioteca estándar de entrada y salida para usar printf y scanf
+// #include <stdint.h>     // Biblioteca para usar tipos de datos con tamaño específico como int64_t
 
-    int main() {
-    int64_t n = 0;
-    int64_t result = 0;
-    int64_t i = 1;
+// int main() { // Función principal del programa
+//     int64_t n = 0;       // Variable para almacenar el número de términos a sumar, de tipo entero largo
+//     int64_t result = 0;  // Variable para almacenar el resultado de la suma
+//     int64_t i = 1;       // Variable de control para el bucle de suma, comenzando en 1
 
-    // Solicitar al usuario el número de términos (N) para sumar
-    printf("Ingrese el número de términos a sumar (N): ");
-    if (scanf("%ld", &n) != 1) {
-        printf("Error al leer el número\n");
-        return 1;
-    }
+//     // Solicitar al usuario el número de términos (N) para sumar
+//     printf("Ingrese el número de términos a sumar (N): "); // Mensaje para pedir el valor de N
+//     if (scanf("%ld", &n) != 1) { // Leer el valor de N desde el teclado; verifica si la entrada es válida
+//         printf("Error al leer el número\n"); // Mensaje de error si no se pudo leer correctamente
+//         return 1; // Finaliza el programa con un código de error
+//     }
 
-    // Verificar que N sea un número positivo
-    if (n <= 0) {
-        printf("Error: Por favor ingrese un número positivo\n");
-        return 1;
-    }
+//     // Verificar que N sea un número positivo
+//     if (n <= 0) { // Condición para asegurar que el número ingresado es positivo
+//         printf("Error: Por favor ingrese un número positivo\n"); // Mensaje de error si N no es positivo
+//         return 1; // Finaliza el programa con un código de error
+//     }
 
-    // Calcular la suma de los primeros N números
-    for (i = 1; i <= n; ++i) {
-        result += i;
-    }
+//     // Calcular la suma de los primeros N números
+//     for (i = 1; i <= n; ++i) { // Bucle para sumar los números desde 1 hasta N
+//         result += i; // Acumula el valor de i en result en cada iteración
+//     }
 
-    // Imprimir el resultado de la suma
-    printf("La suma de los primeros %ld números es: %ld\n", n, result);
+//     // Imprimir el resultado de la suma
+//     printf("La suma de los primeros %ld números es: %ld\n", n, result); // Muestra el resultado de la suma
 
-    return 0;
-    }
+//     return 0; // Finaliza el programa correctamente
+// }
 
 
-## Programa en arm64
+
       .data
     prompt:     .string "Ingrese el número de términos a sumar (N): "
     format_in:  .string "%ld"
