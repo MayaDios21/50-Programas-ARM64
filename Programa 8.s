@@ -1,76 +1,70 @@
-# Diego Enrique Maya Lopez
-# Programa 8 Serie fibonacci
 
-## Video
-https://asciinema.org/a/WOf0uVXBs7WIT8htjmR0dfaAf
-
-## Descripción
-Calcula y muestra los primeros N términos de la secuencia de Fibonacci
-## Programa en C
     //============================================================
     // Programa: Serie de Fibonacci
     // Descripción: Muestra los primeros N términos de la secuencia de Fibonacci
     // Autor: Diego Enrique Maya Lopez
     // Fecha: 07/11/2024
+    // Video: https://asciinema.org/a/WOf0uVXBs7WIT8htjmR0dfaAf
     //============================================================
-    #include <stdio.h>
-    #include <stdint.h>
-    #include <limits.h>
+   // #include <stdio.h>      // Biblioteca estándar para funciones de entrada y salida
+// #include <stdint.h>     // Biblioteca para tipos de datos de tamaño específico como int64_t
+// #include <limits.h>     // Biblioteca para definir límites de tipos de datos
 
-    int main() {
-    int64_t num = 0;
-    int64_t fib1 = 0, fib2 = 1, fib_next = 0;
-    int64_t i = 1;
+// int main() { // Función principal del programa
+//     int64_t num = 0;        // Variable para almacenar el número de términos de la serie de Fibonacci
+//     int64_t fib1 = 0;       // Primer término de Fibonacci (inicializado en 0)
+//     int64_t fib2 = 1;       // Segundo término de Fibonacci (inicializado en 1)
+//     int64_t fib_next = 0;   // Variable para almacenar el siguiente término de Fibonacci
+//     int64_t i = 1;          // Variable de control para el bucle, comenzando en 1
 
-    // Solicitar al usuario el número de términos de Fibonacci a calcular
-    printf("Ingrese el número de términos de Fibonacci a calcular: ");
-    if (scanf("%ld", &num) != 1) {
-        printf("Error al leer el número\n");
-        return 1;
-    }
+//     // Solicitar al usuario el número de términos de Fibonacci a calcular
+//     printf("Ingrese el número de términos de Fibonacci a calcular: "); // Mensaje pidiendo el número al usuario
+//     if (scanf("%ld", &num) != 1) { // Leer el número desde el teclado; verifica si la entrada es válida
+//         printf("Error al leer el número\n"); // Mensaje de error si no se pudo leer correctamente
+//         return 1; // Finaliza el programa con un código de error
+//     }
 
-    // Verificar que el número sea positivo
-    if (num <= 0) {
-        printf("Error: Por favor ingrese un número positivo\n");
-        return 1;
-    }
+//     // Verificar que el número sea positivo
+//     if (num <= 0) { // Condición para asegurar que el número ingresado es positivo
+//         printf("Error: Por favor ingrese un número positivo\n"); // Mensaje de error si el número es no positivo
+//         return 1; // Finaliza el programa con un código de error
+//     }
 
-    // Imprimir el primer número de Fibonacci (0)
-    printf("Fibonacci(%ld) = %ld\n", 0, fib1);
+//     // Imprimir el primer número de Fibonacci (0)
+//     printf("Fibonacci(%ld) = %ld\n", 0, fib1); // Muestra el primer término de Fibonacci
 
-    // Si solo se pidió el primer término, terminar
-    if (num == 1) {
-        return 0;
-    }
+//     // Si solo se pidió el primer término, terminar
+//     if (num == 1) { // Condición para verificar si solo se quiere calcular el primer término
+//         return 0; // Finaliza el programa correctamente
+//     }
 
-    // Imprimir el segundo número de Fibonacci (1)
-    printf("Fibonacci(%ld) = %ld\n", 1, fib2);
+//     // Imprimir el segundo número de Fibonacci (1)
+//     printf("Fibonacci(%ld) = %ld\n", 1, fib2); // Muestra el segundo término de Fibonacci
 
-    // Calcular e imprimir los siguientes términos de Fibonacci
-    for (i = 2; i < num; ++i) {
-        // Calcular el siguiente número de Fibonacci
-        fib_next = fib1 + fib2;
+//     // Calcular e imprimir los siguientes términos de Fibonacci
+//     for (i = 2; i < num; ++i) { // Bucle para calcular y mostrar los siguientes términos de Fibonacci
+//         // Calcular el siguiente número de Fibonacci
+//         fib_next = fib1 + fib2; // Suma de los dos términos anteriores para obtener el siguiente
 
-        // Verificar si la suma causaría un desbordamiento
-        if (fib_next < fib2) {
-            printf("Error: El resultado es demasiado grande\n");
-            return 1;
-        }
+//         // Verificar si la suma causaría un desbordamiento
+//         if (fib_next < fib2) { // Comprobación de desbordamiento (si fib_next es menor que fib2)
+//             printf("Error: El resultado es demasiado grande\n"); // Mensaje de error si hay riesgo de desbordamiento
+//             return 1; // Finaliza el programa con un código de error
+//         }
 
-        // Imprimir el siguiente término de Fibonacci
-        printf("Fibonacci(%ld) = %ld\n", i, fib_next);
+//         // Imprimir el siguiente término de Fibonacci
+//         printf("Fibonacci(%ld) = %ld\n", i, fib_next); // Muestra el término de Fibonacci calculado
 
-        // Actualizar los valores para la siguiente iteración
-        fib1 = fib2;
-        fib2 = fib_next;
-    }
+//         // Actualizar los valores para la siguiente iteración
+//         fib1 = fib2;       // Actualizar fib1 con el valor de fib2
+//         fib2 = fib_next;   // Actualizar fib2 con el valor de fib_next
+//     }
 
-    return 0;
-    }
+//     return 0; // Finaliza el programa correctamente
+// }
 
-  
 
-## Programa en arm64
+
 
       .data
     prompt:     .string "Ingrese el número de términos de Fibonacci a calcular: "
