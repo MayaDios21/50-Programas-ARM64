@@ -1,63 +1,56 @@
-## Diego Enrique Maya Lopez
-## Programa 11 Verificar si una cadena es palíndromo
-
-## Video
-https://asciinema.org/a/tiXZPki0LICXgFPyZNKEu1pF5
-
-## Descripcion
-En el progama se verifica si es un palindromo la palabra introducida
-
-## Programa en C
     //============================================================
     // Programa: Verificar si una cadena es palíndromo
     // Descripción: Verifica si una cadena de texto es un palindromo o no
     // Autor: Diego Enrique Maya Lopez
     // Fecha: 07/11/2024
-    #include <stdio.h>
-    #include <string.h>
+    // Video: https://asciinema.org/a/tiXZPki0LICXgFPyZNKEu1pF5
+    //============================================================
 
-    // Función para verificar si una cadena es un palíndromo
-    // Retorna 1 si es palíndromo, 0 si no lo es
-    int is_palindrome(char *str, int length) {
-    int start = 0;
-    int end = length - 1;
+// #include <stdio.h> // Biblioteca para funciones de entrada y salida
+// #include <string.h> // Biblioteca para manipulación de cadenas
 
-    while (start < end) {
-        if (str[start] != str[end]) {
-            return 0; // No es palíndromo
-        }
-        start++;
-        end--;
-    }
-    return 1; // Es palíndromo
-    }
+// // Función para verificar si una cadena es un palíndromo
+// // Retorna 1 si es palíndromo, 0 si no lo es
+// int is_palindrome(char *str, int length) {
+//     int start = 0; // Índice inicial
+//     int end = length - 1; // Índice final (última posición de la cadena)
 
-    int main() {
-    char prompt[] = "Introduce una palabra: ";
-    char str_palindrome[] = "Es palindromo\n";
-    char str_not_palindrome[] = "No es palindromo\n";
-    char buffer[100];  // Buffer para almacenar la entrada del usuario
+//     // Bucle que compara los caracteres desde ambos extremos hacia el centro
+//     while (start < end) {
+//         if (str[start] != str[end]) { // Si los caracteres no coinciden
+//             return 0; // No es palíndromo
+//         }
+//         start++; // Avanzar desde el inicio
+//         end--; // Retroceder desde el final
+//     }
+//     return 1; // Es palíndromo
+// }
 
-    // Imprimir prompt
-    printf("%s", prompt);
+// int main() { // Función principal
+//     char prompt[] = "Introduce una palabra: "; // Mensaje para solicitar entrada
+//     char str_palindrome[] = "Es palindromo\n"; // Mensaje si es palíndromo
+//     char str_not_palindrome[] = "No es palindromo\n"; // Mensaje si no es palíndromo
+//     char buffer[100]; // Buffer para almacenar la entrada del usuario
 
-    // Leer entrada del usuario
-    scanf("%99s", buffer);
+//     // Imprimir prompt al usuario
+//     printf("%s", prompt);
 
-    // Calcular longitud de la cadena introducida
-    int length = strlen(buffer);
+//     // Leer la entrada del usuario y almacenarla en el buffer
+//     scanf("%99s", buffer); // Limitar a 99 caracteres para evitar desbordamiento
 
-    // Verificar si es palíndromo
-    if (is_palindrome(buffer, length)) {
-        printf("%s", str_palindrome);
-    } else {
-        printf("%s", str_not_palindrome);
-    }
+//     // Calcular la longitud de la cadena introducida
+//     int length = strlen(buffer); // Obtener longitud de la cadena
 
-    return 0;
-    }  
+//     // Verificar si la cadena es un palíndromo
+//     if (is_palindrome(buffer, length)) { // Llamada a la función is_palindrome
+//         printf("%s", str_palindrome); // Imprimir mensaje si es palíndromo
+//     } else {
+//         printf("%s", str_not_palindrome); // Imprimir mensaje si no es palíndromo
+//     }
 
-## Programa en ARM64
+//     return 0; // Finalizar el programa
+// }
+
 
     .data
     prompt:          .string "Introduce una palabra: "
