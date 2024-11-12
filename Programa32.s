@@ -2,8 +2,8 @@
 // Programa: Potencia (x^n)
 // Descripción: Se despliega un numero elevado "x" a la "n" veces
 // Autor: Diego Enrique Maya Lopez
-// Fecha: 07/11/2024
-// Video:
+// Fecha: 11/11/2024
+// Video: https://asciinema.org/a/8fb88cZcZxKMQhyY5RXWdypXN
 //============================================================
 
 // #include <stdio.h> // Biblioteca estándar para funciones de entrada y salida
@@ -35,29 +35,31 @@
 // }
 
 
-.global main
-.data
-format: .asciz "%d^%d = %d\n"    // Cambiado a .asciz para null-termination automática
+.section .rodata
+format: .asciz "%d^%d = %d\n"
 
 .text
-main:
-    // Guardar registros
-    stp     x29, x30, [sp, -16]!
-    mov     x29, sp
+.global main
+.type main, %function
 
-    // Guardar registros que usaremos
+main:
+    // Prólogo de la función
+    stp     x29, x30, [sp, -16]!   // Guardar frame pointer y link register
+    mov     x29, sp                 // Establecer frame pointer
+    
+    // Guardar registros callee-saved
     stp     x19, x20, [sp, -16]!
     stp     x21, x22, [sp, -16]!
-
+    
     // Inicializar valores
     mov     x19, #2                 // base = 2
     mov     x20, #5                 // exponente = 5
     mov     x21, #1                 // resultado = 1
     mov     x22, x20               // guardar exponente original
-
+    
     // Si el exponente es 0, saltar al final
     cbz     x20, print_result
-
+    
 loop:
     // Multiplicar resultado por base
     mul     x21, x21, x19          // resultado *= base
@@ -65,21 +67,23 @@ loop:
     // Decrementar contador y continuar si no es cero
     subs    x20, x20, #1           // exponente--
     b.ne    loop                   // si no es cero, continuar loop
-
+    
 print_result:
-    // Imprimir resultado
-    adrp    x0, format
-    add     x0, x0, :lo12:format
+    // Cargar dirección del formato
+    adrp    x0, format             // Cargar página de la dirección
+    add     x0, x0, :lo12:format   // Añadir el offset dentro de la página
     mov     x1, x19                // base
     mov     x2, x22                // exponente original
     mov     x3, x21                // resultado
     bl      printf
-
-    // Restaurar registros
+    
+    // Restaurar registros callee-saved
     ldp     x21, x22, [sp], 16
     ldp     x19, x20, [sp], 16
     
-    // Retornar
-    mov     x0, 0
+    // Epílogo de la función
+    mov     w0, #0                 // Valor de retorno
     ldp     x29, x30, [sp], 16
     ret
+
+.size main, .-main
