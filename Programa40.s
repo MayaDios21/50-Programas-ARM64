@@ -5,7 +5,7 @@
 // Si la entrada es incorrecta, muestra un mensaje de error; si es correcta, muestra el número en decimal.
 // Autor: Diego Enrique Maya Lopez
 // Fecha: 12/11/2024
-// Video:
+// Video: https://asciinema.org/a/yqhPSR7UIZMx3aEDMsM86H1Hi
 //============================================================
 
 /*
