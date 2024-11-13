@@ -4,7 +4,7 @@
 // (extracción). La cola permite agregar y extraer valores enteros de 64 bits, con verificación de condiciones de desbordamiento 
 // (cola llena) y subdesbordamiento (cola vacía). Mensajes de confirmación o error se muestran en cada operación.
 // Autor: Diego Enrique Maya Lopez
-// Fecha: 07/11/2024
+// Fecha: 12/11/2024
 // Video:
 //============================================================
 
