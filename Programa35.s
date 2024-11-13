@@ -1,11 +1,72 @@
 //============================================================
 // Programa: Rotación de un arreglo (izquierda/derecha)
-// Descripción: 
+// Descripción:  define un arreglo con números y luego realiza dos tipos de rotaciones sobre él: hacia la izquierda y hacia la derecha. 
+// Primero, imprime el arreglo en su estado original,
+// luego rota todos sus elementos hacia la izquierda según el número de posiciones definido (en este caso 2) y muestra el resultado.
 // Autor: Diego Enrique Maya Lopez
 // Fecha: 11/11/2024
 // Video:
 //============================================================
 
+// #include <stdio.h>               // Incluir la biblioteca estándar de E/S
+
+// #define ARRAY_SIZE 5             // Definir el tamaño del arreglo
+// #define POSITIONS 2              // Número de posiciones para rotar
+
+// // Arreglo original
+// long array[ARRAY_SIZE] = {1, 2, 3, 4, 5};  // Inicializar el arreglo
+
+// // Función para mostrar el arreglo
+// void mostrar_arreglo(const char* mensaje) {
+//     printf("%s", mensaje);         // Imprimir el mensaje de encabezado
+//     for (int i = 0; i < ARRAY_SIZE; i++) {  // Recorrer el arreglo
+//         printf("%ld ", array[i]);  // Imprimir cada elemento
+//     }
+//     printf("\n");                  // Imprimir nueva línea al final
+// }
+
+// // Función para rotar el arreglo a la izquierda
+// void rotar_izquierda() {
+//     for (int r = 0; r < POSITIONS; r++) {  // Número de rotaciones
+//         long temp = array[0];             // Guardar el primer elemento
+//         for (int i = 0; i < ARRAY_SIZE - 1; i++) {  // Mover elementos a la izquierda
+//             array[i] = array[i + 1];
+//         }
+//         array[ARRAY_SIZE - 1] = temp;     // Colocar el primer elemento al final
+//     }
+// }
+
+// // Función para rotar el arreglo a la derecha
+// void rotar_derecha() {
+//     for (int r = 0; r < POSITIONS; r++) {  // Número de rotaciones
+//         long temp = array[ARRAY_SIZE - 1]; // Guardar el último elemento
+//         for (int i = ARRAY_SIZE - 1; i > 0; i--) { // Mover elementos a la derecha
+//             array[i] = array[i - 1];
+//         }
+//         array[0] = temp;                  // Colocar el último elemento al inicio
+//     }
+// }
+
+// // Función para restaurar el arreglo original
+// void restaurar_original() {
+//     for (int i = 0; i < ARRAY_SIZE; i++) { // Restaurar valores originales
+//         array[i] = i + 1;
+//     }
+// }
+
+// // Función principal
+// int main() {
+//     mostrar_arreglo("Arreglo original: ");    // Mostrar el arreglo original
+    
+//     rotar_izquierda();                        // Rotar a la izquierda
+//     mostrar_arreglo("Rotación izquierda: ");  // Mostrar el resultado de la rotación a la izquierda
+    
+//     restaurar_original();                     // Restaurar el arreglo original
+//     rotar_derecha();                          // Rotar a la derecha
+//     mostrar_arreglo("Rotación derecha: ");    // Mostrar el resultado de la rotación a la derecha
+    
+//     return 0;                                 // Finalizar el programa
+// }
 
 
 .global main
