@@ -4,7 +4,7 @@
 // un número decimal, luego realiza la conversión bit a bit y finalmente imprime el número en formato binario.
 // Autor: Diego Enrique Maya Lopez
 // Fecha: 12/11/2024
-// Video:
+// Video: https://asciinema.org/a/IHZxJqfDwTJvEnphJjMXldpU4
 //============================================================
 
 /*
