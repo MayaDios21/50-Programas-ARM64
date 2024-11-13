@@ -6,166 +6,238 @@
 // Video:
 //============================================================
 
-.section .rodata
-format_original: .asciz "\nArreglo original:\n"
-format_izquierda: .asciz "\nArreglo rotado a la izquierda %d posiciones:\n"
-format_derecha: .asciz "\nArreglo rotado a la derecha %d posiciones:\n"
-format_elemento: .asciz "%d "
-format_newline: .asciz "\n"
+
+
+.global main
 
 .section .data
-array: .word 1, 2, 3, 4, 5, 6, 7, 8    // Arreglo de 8 elementos
-array_size: .word 8                     // Tamaño del arreglo
-rotaciones: .word 3                     // Número de posiciones a rotar
-temp_array: .zero 32                    // Array temporal (8 elementos * 4 bytes)
+msg1:    .ascii "Arreglo original: "
+len1 = . - msg1
+msg2:    .ascii "\nRotacion izquierda: "
+len2 = . - msg2
+msg3:    .ascii "\nRotacion derecha: "
+len3 = . - msg3
+array:   .quad 1, 2, 3, 4, 5    // Arreglo original
+size:    .quad 5                // Tamaño del arreglo
+pos:     .quad 2                // Posiciones a rotar
+buffer:  .skip 32               // Buffer para conversión
+space:   .ascii " "
+newline: .ascii "\n"
 
-.text
-.global main
-.type main, %function
-
-// Función para imprimir el arreglo
-print_array:
-    stp     x29, x30, [sp, -16]!
-    mov     x29, sp
-    stp     x19, x20, [sp, -16]!
-    
-    mov     x19, x0                // Dirección del arreglo
-    mov     x20, x1                // Tamaño del arreglo
-    mov     x21, #0                // Contador
-    
-print_loop:
-    cmp     x21, x20
-    b.ge    print_end
-    
-    // Imprimir elemento actual
-    adrp    x0, format_elemento
-    add     x0, x0, :lo12:format_elemento
-    ldr     w1, [x19, x21, lsl #2]
-    bl      printf
-    
-    add     x21, x21, #1
-    b       print_loop
-    
-print_end:
-    // Imprimir nueva línea
-    adrp    x0, format_newline
-    add     x0, x0, :lo12:format_newline
-    bl      printf
-    
-    ldp     x19, x20, [sp], 16
-    ldp     x29, x30, [sp], 16
-    ret
-
-// Función principal
+.section .text
 main:
-    // Prólogo
-    stp     x29, x30, [sp, -16]!
-    mov     x29, sp
-    stp     x19, x20, [sp, -16]!
-    stp     x21, x22, [sp, -16]!
+    stp x29, x30, [sp, -16]!   // Guardar frame pointer y link register
+    mov x29, sp                 // Actualizar frame pointer
+
+    // Mostrar arreglo original
+    mov x0, #1
+    ldr x1, =msg1
+    mov x2, len1
+    mov x8, #64
+    svc #0
+
+    bl mostrar_arreglo
+
+    // Rotar izquierda
+    bl rotar_izquierda
     
-    // Cargar direcciones y valores
-    adrp    x19, array
-    add     x19, x19, :lo12:array          // x19 = dirección del arreglo
-    adrp    x20, array_size
-    add     x20, x20, :lo12:array_size
-    ldr     w20, [x20]                     // w20 = tamaño
-    adrp    x21, rotaciones
-    add     x21, x21, :lo12:rotaciones
-    ldr     w21, [x21]                     // w21 = número de rotaciones
-    adrp    x22, temp_array
-    add     x22, x22, :lo12:temp_array     // x22 = arreglo temporal
+    // Mostrar resultado rotación izquierda
+    mov x0, #1
+    ldr x1, =msg2
+    mov x2, len2
+    mov x8, #64
+    svc #0
+
+    bl mostrar_arreglo
+
+    // Restaurar arreglo original
+    bl restaurar_original
     
-    // Imprimir arreglo original
-    adrp    x0, format_original
-    add     x0, x0, :lo12:format_original
-    bl      printf
+    // Rotar derecha
+    bl rotar_derecha
     
-    mov     x0, x19                // Dirección del arreglo
-    mov     x1, x20                // Tamaño
-    bl      print_array
+    // Mostrar resultado rotación derecha
+    mov x0, #1
+    ldr x1, =msg3
+    mov x2, len3
+    mov x8, #64
+    svc #0
+
+    bl mostrar_arreglo
+
+    // Nueva línea final
+    mov x0, #1
+    ldr x1, =newline
+    mov x2, #1
+    mov x8, #64
+    svc #0
+
+    // Restaurar frame pointer y link register
+    ldp x29, x30, [sp], 16
     
-    // Rotación a la izquierda
-    // Primero copiamos el arreglo original al temporal
-    mov     x23, #0                // Contador
-copy_left:
-    cmp     x23, x20
-    b.ge    do_left_rotation
-    ldr     w24, [x19, x23, lsl #2]
-    str     w24, [x22, x23, lsl #2]
-    add     x23, x23, #1
-    b       copy_left
-    
-do_left_rotation:
-    // Realizar la rotación
-    mov     x23, #0                // Contador
-left_rotate:
-    cmp     x23, x20
-    b.ge    print_left_result
-    
-    add     x24, x23, x21         // índice + rotaciones
-    udiv    x25, x24, x20         // división para wrap-around
-    msub    x24, x25, x20, x24    // módulo para wrap-around
-    
-    ldr     w25, [x22, x23, lsl #2]
-    str     w25, [x19, x24, lsl #2]
-    
-    add     x23, x23, #1
-    b       left_rotate
-    
-print_left_result:
-    adrp    x0, format_izquierda
-    add     x0, x0, :lo12:format_izquierda
-    mov     w1, w21
-    bl      printf
-    
-    mov     x0, x19
-    mov     x1, x20
-    bl      print_array
-    
-    // Rotación a la derecha
-    // Primero restauramos el arreglo original
-    mov     x23, #0
-copy_right:
-    cmp     x23, x20
-    b.ge    do_right_rotation
-    ldr     w24, [x22, x23, lsl #2]
-    str     w24, [x19, x23, lsl #2]
-    add     x23, x23, #1
-    b       copy_right
-    
-do_right_rotation:
-    mov     x23, #0
-right_rotate:
-    cmp     x23, x20
-    b.ge    print_right_result
-    
-    sub     x24, x20, x21         // tamaño - rotaciones
-    add     x24, x24, x23         // + índice actual
-    udiv    x25, x24, x20         // división para wrap-around
-    msub    x24, x25, x20, x24    // módulo para wrap-around
-    
-    ldr     w25, [x22, x23, lsl #2]
-    str     w25, [x19, x24, lsl #2]
-    
-    add     x23, x23, #1
-    b       right_rotate
-    
-print_right_result:
-    adrp    x0, format_derecha
-    add     x0, x0, :lo12:format_derecha
-    mov     w1, w21
-    bl      printf
-    
-    mov     x0, x19
-    mov     x1, x20
-    bl      print_array
-    
-    // Epílogo
-    ldp     x21, x22, [sp], 16
-    ldp     x19, x20, [sp], 16
-    mov     w0, #0
-    ldp     x29, x30, [sp], 16
+    // Retornar 0
+    mov x0, #0
     ret
 
-.size main, .-main
+rotar_izquierda:
+    str x30, [sp, #-16]!        // Guardar enlace retorno
+    ldr x9, =pos               // Cargar número de posiciones
+    ldr x9, [x9]
+    mov x10, #0                // Contador de rotaciones
+    ldr x11, =size            // Cargar tamaño del arreglo
+    ldr x11, [x11]
+
+loop_izq:
+    cmp x10, x9                // Verificar si terminamos rotaciones
+    beq fin_rotar_izq
+    
+    // Guardar primer elemento
+    ldr x12, =array
+    ldr x13, [x12]             // Guardar primer elemento
+    
+    // Mover elementos
+    mov x14, #0                // Índice actual
+mover_izq:
+    add x15, x14, #1           // Siguiente posición
+    cmp x15, x11               // Comparar con tamaño
+    beq guardar_temp_izq
+    
+    ldr x16, [x12, x15, lsl #3]  // Cargar siguiente
+    str x16, [x12, x14, lsl #3]  // Guardar en actual
+    
+    add x14, x14, #1
+    b mover_izq
+    
+guardar_temp_izq:
+    sub x15, x11, #1           // Última posición
+    str x13, [x12, x15, lsl #3]  // Guardar primer elemento al final
+    
+    add x10, x10, #1
+    b loop_izq
+    
+fin_rotar_izq:
+    ldr x30, [sp], #16
+    ret
+
+rotar_derecha:
+    str x30, [sp, #-16]!
+    ldr x9, =pos              // Cargar posiciones
+    ldr x9, [x9]
+    mov x10, #0               // Contador
+    ldr x11, =size           // Cargar tamaño
+    ldr x11, [x11]
+
+loop_der:
+    cmp x10, x9
+    beq fin_rotar_der
+    
+    // Guardar último elemento
+    ldr x12, =array
+    sub x13, x11, #1          // Índice último elemento
+    ldr x14, [x12, x13, lsl #3]  // Guardar último elemento
+    
+    // Mover elementos
+mover_der:
+    cmp x13, #0
+    beq guardar_temp_der
+    
+    sub x15, x13, #1
+    ldr x16, [x12, x15, lsl #3]
+    str x16, [x12, x13, lsl #3]
+    
+    sub x13, x13, #1
+    b mover_der
+    
+guardar_temp_der:
+    str x14, [x12]            // Guardar último al inicio
+    
+    add x10, x10, #1
+    b loop_der
+    
+fin_rotar_der:
+    ldr x30, [sp], #16
+    ret
+
+mostrar_arreglo:
+    str x30, [sp, #-16]!
+    mov x9, #0                // Índice
+    ldr x10, =array          // Base del arreglo
+    ldr x11, =size          // Tamaño
+    ldr x11, [x11]
+
+mostrar_loop:
+    cmp x9, x11
+    beq fin_mostrar
+    
+    ldr x12, [x10, x9, lsl #3]
+    
+    // Convertir número a string
+    ldr x13, =buffer
+    mov x14, x12
+    mov x15, #0              // Contador dígitos
+
+convertir:
+    mov x16, #10
+    udiv x17, x14, x16
+    msub x18, x17, x16, x14
+    add x18, x18, #'0'
+    strb w18, [x13, x15]
+    add x15, x15, #1
+    mov x14, x17
+    cbnz x14, convertir
+    
+    // Invertir los dígitos
+    mov x16, #0              // Inicio
+    sub x17, x15, #1         // Fin
+invertir_loop:
+    cmp x16, x17
+    bge fin_invertir
+    ldrb w18, [x13, x16]     // Cargar byte del inicio
+    ldrb w19, [x13, x17]     // Cargar byte del final
+    strb w19, [x13, x16]     // Guardar byte del final en inicio
+    strb w18, [x13, x17]     // Guardar byte del inicio en final
+    add x16, x16, #1
+    sub x17, x17, #1
+    b invertir_loop
+fin_invertir:
+    
+    // Mostrar número
+    mov x0, #1
+    mov x1, x13
+    mov x2, x15
+    mov x8, #64
+    svc #0
+    
+    // Mostrar espacio
+    mov x0, #1
+    ldr x1, =space
+    mov x2, #1
+    mov x8, #64
+    svc #0
+    
+    add x9, x9, #1
+    b mostrar_loop
+
+fin_mostrar:
+    ldr x30, [sp], #16
+    ret
+
+restaurar_original:
+    str x30, [sp, #-16]!
+    ldr x9, =array           // Base del arreglo
+    mov x10, #1              // Valor inicial
+    ldr x11, =size          // Tamaño
+    ldr x11, [x11]
+    mov x12, #0              // Índice
+
+restaurar_loop:
+    cmp x12, x11
+    beq fin_restaurar
+    str x10, [x9, x12, lsl #3]
+    add x10, x10, #1
+    add x12, x12, #1
+    b restaurar_loop
+
+fin_restaurar:
+    ldr x30, [sp], #16
+    ret
