@@ -5,7 +5,7 @@
 // luego rota todos sus elementos hacia la izquierda según el número de posiciones definido (en este caso 2) y muestra el resultado.
 // Autor: Diego Enrique Maya Lopez
 // Fecha: 11/11/2024
-// Video:
+// Video: https://asciinema.org/a/paustMes5QdnrUnZdwZTq7wT2
 //============================================================
 
 // #include <stdio.h>               // Incluir la biblioteca estándar de E/S
