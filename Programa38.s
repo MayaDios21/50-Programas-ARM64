@@ -5,7 +5,7 @@
 // (cola llena) y subdesbordamiento (cola vacía). Mensajes de confirmación o error se muestran en cada operación.
 // Autor: Diego Enrique Maya Lopez
 // Fecha: 12/11/2024
-// Video:
+// Video: https://asciinema.org/a/OCSwoneuLhQJXYJL3OCPhVca9
 //============================================================
 
 /*
