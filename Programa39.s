@@ -3,7 +3,7 @@
 // Descripción: convierte un número ingresado en decimal a su representación binaria. Primero solicita al usuario 
 // un número decimal, luego realiza la conversión bit a bit y finalmente imprime el número en formato binario.
 // Autor: Diego Enrique Maya Lopez
-// Fecha: 07/11/2024
+// Fecha: 12/11/2024
 // Video:
 //============================================================
 
