@@ -1,63 +1,61 @@
-## Diego Enrique Maya Lopez
-## Programa 17 Ordenamiento por selección
+//============================================================
+// Programa: 
+// Descripción: 
+// Autor: Diego Enrique Maya Lopez
+// Fecha: 07/11/2024
+// Video:
+//============================================================
+    //#include <stdio.h>
 
-## Video
+    //void selection_sort(long arr[], int n);
+    //void printf_array(long arr[], int n);
 
-## Descripcion
-Se le introducen numeros desordenados y los ordena al instante
-
-## Programa en C
-    #include <stdio.h>
-
-    void selection_sort(long arr[], int n);
-    void printf_array(long arr[], int n);
-
-    int main() {
-    long array[] = {64, 34, 25, 12, 22, 11, 90, 1};
-    int n = 8;
+    //int main() {
+    //long array[] = {64, 34, 25, 12, 22, 11, 90, 1};
+    //int n = 8;
 
     // Imprimir array original
-    printf("Array original:\n");
-    printf_array(array, n);
+    //printf("Array original:\n");
+    //printf_array(array, n);
 
     // Ordenar el array usando Selection Sort
-    selection_sort(array, n);
+    //selection_sort(array, n);
 
     // Imprimir array ordenado
-    printf("Array ordenado:\n");
-    printf_array(array, n);
+    //printf("Array ordenado:\n");
+    //printf_array(array, n);
 
-    return 0;
-    }
+    //return 0;
+    //}
 
-    void selection_sort(long arr[], int n) {
-    int i, j, min_idx;
-    for (i = 0; i < n - 1; i++) {
-        min_idx = i;
-        for (j = i + 1; j < n; j++) {
-            if (arr[j] < arr[min_idx]) {
-                min_idx = j;
-            }
-        }
+    //void selection_sort(long arr[], int n) {
+    //int i, j, min_idx;
+    //for (i = 0; i < n - 1; i++) {
+      //  min_idx = i;
+        //for (j = i + 1; j < n; j++) {
+          //  if (arr[j] < arr[min_idx]) {
+            //    min_idx = j;
+            //}
+        //}
 
         // Intercambiar arr[min_idx] y arr[i] si min_idx ha cambiado
-        if (min_idx != i) {
-            long temp = arr[i];
-            arr[i] = arr[min_idx];
-            arr[min_idx] = temp;
-        }
-    }
-    }
+        //if (min_idx != i) {
+          //  long temp = arr[i];
+            //arr[i] = arr[min_idx];
+            //arr[min_idx] = temp;
+        //}
+    //}
+    //}
 
-    void printf_array(long arr[], int n) {
-    for (int i = 0; i < n; i++) {
-        printf("%ld ", arr[i]);
-    }
-    printf("\n");
-    }
+    //void printf_array(long arr[], int n) {
+    //for (int i = 0; i < n; i++) {
+      //  printf("%ld ", arr[i]);
+    //}
+    //printf("\n");
+    //}
 
 
-## Programa en ARM64
+
     // selection_sort.s
     .data
     array:      .quad   64, 34, 25, 12, 22, 11, 90, 1    // Array inicial
