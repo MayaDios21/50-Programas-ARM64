@@ -1,83 +1,75 @@
-## Diego Enrique Maya Lopez 
-## Programa 
 
-## Video
-
-
-## Descripcion 
-
-
-## Programa en C
     //============================================================
-    // Programa: 
-    // Descripción: 
+    // Programa: Suma de matrices
+    // Descripción: Se suman diferentes matrices
     // Autor: Diego Enrique Maya Lopez
     // Fecha: 07/11/2024
-    #include <stdio.h>
+    //============================================================
+    //#include <stdio.h>
 
-    #define DIM 3
+    //#define DIM 3
 
     // Funciones para imprimir la matriz y sumar las matrices
-    void imprimir_matriz(long matriz[DIM][DIM]);
-    void sumar_matrices(long matriz1[DIM][DIM], long matriz2[DIM][DIM], long resultado[DIM][DIM]);
+    //void imprimir_matriz(long matriz[DIM][DIM]);
+    //void sumar_matrices(long matriz1[DIM][DIM], long matriz2[DIM][DIM], long resultado[DIM][DIM]);
 
-    int main() {
-    long matriz1[DIM][DIM] = {
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9}
-    };
+    //int main() {
+    //long matriz1[DIM][DIM] = {
+      //  {1, 2, 3},
+        //{4, 5, 6},
+        //{7, 8, 9}
+    //};
 
-    long matriz2[DIM][DIM] = {
-        {9, 8, 7},
-        {6, 5, 4},
-        {3, 2, 1}
-    };
+    //long matriz2[DIM][DIM] = {
+      //  {9, 8, 7},
+      //  {6, 5, 4},
+      //  {3, 2, 1}
+    //};
 
-    long resultado[DIM][DIM];  // Matriz para almacenar el resultado de la suma
+    //long resultado[DIM][DIM];  // Matriz para almacenar el resultado de la suma
 
     // Imprimir título
-    printf("\nSuma de Matrices 3x3\n");
+    //printf("\nSuma de Matrices 3x3\n");
 
     // Mostrar la primera matriz
-    printf("\nMatriz 1:\n");
-    imprimir_matriz(matriz1);
+    //printf("\nMatriz 1:\n");
+    //imprimir_matriz(matriz1);
 
     // Mostrar la segunda matriz
-    printf("\nMatriz 2:\n");
-    imprimir_matriz(matriz2);
+    //printf("\nMatriz 2:\n");
+    //imprimir_matriz(matriz2);
 
     // Realizar la suma de matrices
-    sumar_matrices(matriz1, matriz2, resultado);
+    //sumar_matrices(matriz1, matriz2, resultado);
 
     // Mostrar el resultado
-    printf("\nMatriz Resultado:\n");
-    imprimir_matriz(resultado);
+    //printf("\nMatriz Resultado:\n");
+    //imprimir_matriz(resultado);
 
-    return 0;
-    }
+    //return 0;
+    //}
 
     // Función para imprimir una matriz
-    void imprimir_matriz(long matriz[DIM][DIM]) {
-    for (int i = 0; i < DIM; i++) {
-        for (int j = 0; j < DIM; j++) {
-            printf("%3ld ", matriz[i][j]);
-        }
-        printf("\n");
-    }
-    }
+    //void imprimir_matriz(long matriz[DIM][DIM]) {
+    //for (int i = 0; i < DIM; i++) {
+      //  for (int j = 0; j < DIM; j++) {
+        //    printf("%3ld ", matriz[i][j]);
+        //}
+        //printf("\n");
+    //}
+    //}
 
     // Función para sumar las dos matrices
-    void sumar_matrices(long matriz1[DIM][DIM], long matriz2[DIM][DIM], long resultado[DIM][DIM]) {
-    for (int i = 0; i < DIM; i++) {
-        for (int j = 0; j < DIM; j++) {
-            resultado[i][j] = matriz1[i][j] + matriz2[i][j];
-        }
-    }
-    }
+    //void sumar_matrices(long matriz1[DIM][DIM], long matriz2[DIM][DIM], long resultado[DIM][DIM]) {
+    //for (int i = 0; i < DIM; i++) {
+      //  for (int j = 0; j < DIM; j++) {
+        //    resultado[i][j] = matriz1[i][j] + matriz2[i][j];
+        //}
+    // }
+    //}
 
 
-## Programa en ARM64   
+
     .data
     // Definición de las matrices de entrada
     matriz1:    .quad   1, 2, 3,     // Primera matriz 3x3
