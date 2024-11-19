@@ -1,85 +1,75 @@
-## Diego Enrique Maya Lopez 
-## Programa 15 Búsqueda binaria
-
-## Video
-
-
-## Descripcion 
-Realiza una búsqueda binaria de un número en un arreglo ordenado
-
-## Programa en C
     //============================================================
-    // Programa: 
-    // Descripción: 
+    // Programa: Búsqueda binaria
+    // Descripción:  Busca numeros de manera binaria
     // Autor: Diego Enrique Maya Lopez
     // Fecha: 07/11/2024
-    #include <stdio.h>
+    //#include <stdio.h>
 
-    #define SIZE 10
+    //#define SIZE 10
 
-    void print_array(long *array, int n);
-    int binary_search(long *array, int n, long target);
+    //void print_array(long *array, int n);
+    //int binary_search(long *array, int n, long target);
 
-    int main() {
-    long array[SIZE] = {3, 6, 7, 9, 11, 12, 15, 18, 23, 45}; // Arreglo ordenado
-    long target = 18; // Número a buscar
+    //int main() {
+    //long array[SIZE] = {3, 6, 7, 9, 11, 12, 15, 18, 23, 45}; // Arreglo ordenado
+    //long target = 18; // Número a buscar
 
     // Imprimir el arreglo
-    printf("Arreglo: ");
-    print_array(array, SIZE);
+    //printf("Arreglo: ");
+    //print_array(array, SIZE);
 
     // Imprimir el número que vamos a buscar
-    printf("\nBuscando el número: %ld\n", target);
+    //printf("\nBuscando el número: %ld\n", target);
 
     // Llamar a la función de búsqueda binaria
-    int position = binary_search(array, SIZE, target);
+    //int position = binary_search(array, SIZE, target);
 
     // Imprimir resultado de la búsqueda
-    if (position != -1) {
-        printf("Número encontrado en la posición: %d\n", position);
-    } else {
-        printf("Número no encontrado en el arreglo\n");
-    }
+    //if (position != -1) {
+       // printf("Número encontrado en la posición: %d\n", position);
+    //} else {
+      //  printf("Número no encontrado en el arreglo\n");
+    //}
 
-    return 0;
-    }
+    //return 0;
+    //}
 
     // Función para imprimir el arreglo
-    void print_array(long *array, int n) {
-    for (int i = 0; i < n; i++) {
-        printf("%ld ", array[i]);
-    }
-    printf("\n");
-    }
+    //void print_array(long *array, int n) {
+    //for (int i = 0; i < n; i++) {
+      //  printf("%ld ", array[i]);
+    //}
+    //printf("\n");
+    //}
 
     // Función de búsqueda binaria con impresión de pasos
-    int binary_search(long *array, int n, long target) {
-    int left = 0;
-    int right = n - 1;
-    int step = 1;
+    //int binary_search(long *array, int n, long target) {
+    //int left = 0;
+    //int right = n - 1;
+    //int step = 1;
 
-    while (left <= right) {
-        int mid = (left + right) / 2;
+    //while (left <= right) {
+      //  int mid = (left + right) / 2;
 
         // Imprimir paso actual
-        printf("Paso %d: Buscando entre las posiciones %d y %d, medio = %d\n", step, left, right, mid);
+        //printf("Paso %d: Buscando entre las posiciones %d y %d, medio = %d\n", step, left, right, mid);
 
-        if (array[mid] == target) {
-            return mid; // Número encontrado
-        } else if (array[mid] < target) {
-            left = mid + 1; // Buscar en la mitad derecha
-        } else {
-            right = mid - 1; // Buscar en la mitad izquierda
-        }
+        //if (array[mid] == target) {
+          //  return mid; // Número encontrado
+        //} else if (array[mid] < target) {
+          //  left = mid + 1; // Buscar en la mitad derecha
+        //} else {
+          //  right = mid - 1; // Buscar en la mitad izquierda
+        //}
 
-        step++; // Incrementar contador de pasos
-    }
+        //step++; // Incrementar contador de pasos
+    //}
 
-    return -1; // Número no encontrado
-    }
+    //return -1; // Número no encontrado
+    //}
 
 
-## Programa en ARM64   
+
 
     .data
     arreglo:    .quad   3, 6, 7, 9, 11, 12, 15, 18, 23, 45  // Arreglo ordenado
