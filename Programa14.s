@@ -1,57 +1,47 @@
-## Diego Enrique Maya Lopez 
-## Programa 14 Búsqueda lineal
 
-## Video
-
-
-## Descripcion 
-Programa que realiza una busqueda lineal 
-
-## Programa en C
     //============================================================
     // Programa: Busqueda lineal
     // Descripción: Realiza una busqueda en fromato lineal
     // Autor: Diego Enrique Maya Lopez
     // Fecha: 07/11/2024
     #include <stdio.h>
-    int main() {
+   // int main() {
     // Inicializar el arreglo y sus variables asociadas
-    long arreglo[] = {15, 7, 23, 9, 12, 3, 18, 45, 6, 11};
-    int longitud = 10;
-    long buscar = 18;
+    //long arreglo[] = {15, 7, 23, 9, 12, 3, 18, 45, 6, 11};
+    //int longitud = 10;
+    //long buscar = 18;
 
     // Imprimir mensaje inicial y todos los elementos del arreglo
-    printf("Arreglo: ");
-    for (int i = 0; i < longitud; i++) {
-        printf("%ld ", arreglo[i]);
-    }
-    printf("\n");
+   // printf("Arreglo: ");
+    //for (int i = 0; i < longitud; i++) {
+     //   printf("%ld ", arreglo[i]);
+   // }
+  //  printf("\n");
 
     // Imprimir el número que vamos a buscar
-    printf("\nBuscando el número: %ld\n", buscar);
+   // printf("\nBuscando el número: %ld\n", buscar);
 
     // Búsqueda del número
-    int encontrado = -1;  // -1 indica que no se ha encontrado el número
-    for (int i = 0; i < longitud; i++) {
-        if (arreglo[i] == buscar) {
-            encontrado = i;  // Guarda la posición donde se encontró
-            break;           // Termina la búsqueda
-        }
-    }
+    //int encontrado = -1;  // -1 indica que no se ha encontrado el número
+   // for (int i = 0; i < longitud; i++) {
+        //if (arreglo[i] == buscar) {
+          //  encontrado = i;  // Guarda la posición donde se encontró
+          //  break;           // Termina la búsqueda
+       // }
+   // }
 
     // Imprimir el resultado de la búsqueda
-    if (encontrado != -1) {
-        printf("Número encontrado en la posición: %d\n", encontrado);
-    } else {
-        printf("Número no encontrado en el arreglo\n");
-    }
+   // if (encontrado != -1) {
+       // printf("Número encontrado en la posición: %d\n", encontrado);
+ //   } else {
+     //   printf("Número no encontrado en el arreglo\n");
+  //  }
 
-    return 0;
-    }
+   // return 0;
+  //  }
 
     
 
-## Programa en ARM64   
     .data
     arreglo:    .quad   15, 7, 23, 9, 12, 3, 18, 45, 6, 11  // Arreglo de números
     longitud:   .quad   10                                   // Longitud del arreglo
