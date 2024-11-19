@@ -1,103 +1,93 @@
-## Diego Enrique Maya Lopez 
-## Programa 18 Ordenamiento por mezcla (Merge Sort)
-
-## Video
-
-
-## Descripcion 
-Ordena varios numeros pero ahora por mezcla
-
-## Programa en C
     //============================================================
-    // Programa: 
-    // Descripción: 
+    // Programa: Ordenamiento por mezcla (Merge Sort)
+    // Descripción: Ordena varios numeros pero ahora por mezcla
     // Autor: Diego Enrique Maya Lopez
     // Fecha: 07/11/2024
-    #include <stdio.h>
+    //#include <stdio.h>
 
-    #define SIZE 8
+    //#define SIZE 8
 
-    void print_array(long *array, int n);
-    void merge_sort(long *array, long *temp, int left, int right);
-    void merge(long *array, long *temp, int left, int mid, int right);
+    //void print_array(long *array, int n);
+    //void merge_sort(long *array, long *temp, int left, int right);
+    //void merge(long *array, long *temp, int left, int mid, int right);
 
-    int main() {
-    long array[SIZE] = {64, 34, 25, 12, 22, 11, 90, 1};
-    long temp[SIZE];
+    //int main() {
+    //long array[SIZE] = {64, 34, 25, 12, 22, 11, 90, 1};
+    //long temp[SIZE];
 
     // Imprimir array original
-    printf("Array original:\n");
-    print_array(array, SIZE);
+    //printf("Array original:\n");
+    //print_array(array, SIZE);
 
     // Llamar a merge sort
-    merge_sort(array, temp, 0, SIZE - 1);
+    //merge_sort(array, temp, 0, SIZE - 1);
 
     // Imprimir array ordenado
-    printf("Array ordenado:\n");
-    print_array(array, SIZE);
+    //printf("Array ordenado:\n");
+    //print_array(array, SIZE);
 
-    return 0;
-    }
+    //return 0;
+    //}
 
     // Función para imprimir el array
-    void print_array(long *array, int n) {
-    for (int i = 0; i < n; i++) {
-        printf("%ld ", array[i]);
-    }
-    printf("\n");
-    }
+    //void print_array(long *array, int n) {
+    //for (int i = 0; i < n; i++) {
+      //  printf("%ld ", array[i]);
+    //}
+    //printf("\n");
+    //}
 
     // Función merge_sort (ordenación por mezcla)
-    void merge_sort(long *array, long *temp, int left, int right) {
-    if (left >= right) {
-        return;
-    }
+    //void merge_sort(long *array, long *temp, int left, int right) {
+    //if (left >= right) {
+      //  return;
+    //}
 
-    int mid = (left + right) / 2;
+    //int mid = (left + right) / 2;
 
     // Ordenar la mitad izquierda
-    merge_sort(array, temp, left, mid);
+    //merge_sort(array, temp, left, mid);
 
     // Ordenar la mitad derecha
-    merge_sort(array, temp, mid + 1, right);
+    m//erge_sort(array, temp, mid + 1, right);
 
     // Mezclar las dos mitades
-    merge(array, temp, left, mid, right);
-    }
+    //merge(array, temp, left, mid, right);
+    //}
 
     // Función merge (mezcla dos mitades ordenadas)
-    void merge(long *array, long *temp, int left, int mid, int right) {
-    int i = left;        // Índice para la mitad izquierda
-    int j = mid + 1;     // Índice para la mitad derecha
-    int k = left;        // Índice para el array temporal
+    //void merge(long *array, long *temp, int left, int mid, int right) {
+    //int i = left;        // Índice para la mitad izquierda
+    //int j = mid + 1;     // Índice para la mitad derecha
+    //int k = left;        // Índice para el array temporal
 
     // Comparar elementos y copiar el menor al array temporal
-    while (i <= mid && j <= right) {
-        if (array[i] <= array[j]) {
-            temp[k++] = array[i++];
-        } else {
-            temp[k++] = array[j++];
-        }
-    }
+    //while (i <= mid && j <= right) {
+        //if (array[i] <= array[j]) {
+          //  temp[k++] = array[i++];
+        //} else {
+        //    temp[k++] = array[j++];
+      //  }
+    //}
 
     // Copiar el resto de la mitad izquierda, si hay
-    while (i <= mid) {
-        temp[k++] = array[i++];
-    }
+    //while (i <= mid) {
+      //temp[k++] = array[i++];
+    //}
 
     // Copiar el resto de la mitad derecha, si hay
-    while (j <= right) {
-        temp[k++] = array[j++];
-    }
+    //while (j <= right) {
+      //temp[k++] = array[j++];
+    //}
 
     // Copiar del array temporal de vuelta al array original
-    for (i = left; i <= right; i++) {
-        array[i] = temp[i];
-    }
-    }
+    //for (i = left; i <= right; i++) {
+      //  array[i] = temp[i];
+    //}
+   // }
 
 
-## Programa en ARM64  
+
     // merge_sort.s
     .data
     array:      .quad   64, 34, 25, 12, 22, 11, 90, 1    // Array inicial
