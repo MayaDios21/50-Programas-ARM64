@@ -1,9 +1,8 @@
 //============================================================
-// Programa: 
-// Descripción: 
+// Programa: Ordenamiento por selección
+// Descripción: En este programa se usa el ordenamiento de seleccion para encontrar cierto resultado
 // Autor: Diego Enrique Maya Lopez
 // Fecha: 07/11/2024
-// Video:
 //============================================================
     //#include <stdio.h>
 
