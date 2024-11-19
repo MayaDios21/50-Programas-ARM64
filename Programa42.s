@@ -2,7 +2,7 @@
 // Programa: Conversión de hexadecimal a decimal
 // Descripción: Al introducir un numero en hexadecimal lo devuelve en decimal
 // Autor: Diego Enrique Maya Lopez
-// Fecha: 07/11/2024
+// Fecha: 19/11/2024
 // Video: https://asciinema.org/a/4u7BpyUE8qxccgei49Lp4vm4e
 //============================================================
 
