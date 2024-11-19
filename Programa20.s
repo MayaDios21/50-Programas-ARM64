@@ -1,64 +1,55 @@
-## Diego Enrique Maya Lopez 
-## Programa 20 Multiplicacion de matrices
 
-## Video
-
-
-## Descripcion 
-
-
-## Programa en C
     //============================================================
     // Programa: Multipliacion de matrices
     // Descripción: Este programa realiza la multipliacion de 2 matices
     // Autor: Diego Enrique Maya Lopez
     // Fecha: 07/11/2024
-    #include <stdio.h>
+    //#include <stdio.h>
 
-    void multiply_matrices(long matrix1[2][3], long matrix2[3][2], long result[2][2], int rows1, int cols1, int cols2);
-    void print_matrix(long matrix[][2], int rows, int cols);
+    //void multiply_matrices(long matrix1[2][3], long matrix2[3][2], long result[2][2], int rows1, int cols1, int cols2);
+    //void print_matrix(long matrix[][2], int rows, int cols);
 
-    int main() {
+    //int main() {
     // Definir matrices y sus dimensiones
-    long matrix1[2][3] = {
-        {1, 2, 3},
-        {4, 5, 6}
-    };
-    long matrix2[3][2] = {
-        {7, 8},
-        {9, 10},
-        {11, 12}
-    };
-    long result[2][2] = {0}; // Inicializar matriz de resultados a cero
+    //long matrix1[2][3] = {
+      //  {1, 2, 3},
+      //  {4, 5, 6}
+    //};
+    //long matrix2[3][2] = {
+      //  {7, 8},
+      //  {9, 10},
+      //  {11, 12}
+    //};
+    //long result[2][2] = {0}; // Inicializar matriz de resultados a cero
 
     // Dimensiones de las matrices
-    int rows1 = 2, cols1 = 3, rows2 = 3, cols2 = 2;
+    //int rows1 = 2, cols1 = 3, rows2 = 3, cols2 = 2;
 
     // Imprimir matrices originales
-    printf("Matriz 1:\n");
-    print_matrix(matrix1, rows1, cols1);
-    printf("Matriz 2:\n");
-    print_matrix(matrix2, rows2, cols2);
+    //printf("Matriz 1:\n");
+    //print_matrix(matrix1, rows1, cols1);
+    //printf("Matriz 2:\n");
+    //print_matrix(matrix2, rows2, cols2);
 
     // Multiplicar matrices
-    multiply_matrices(matrix1, matrix2, result, rows1, cols1, cols2);
+    //multiply_matrices(matrix1, matrix2, result, rows1, cols1, cols2);
 
     // Imprimir el resultado de la multiplicación
-    printf("Resultado:\n");
-    print_matrix(result, rows1, cols2);
+    //printf("Resultado:\n");
+    //print_matrix(result, rows1, cols2);
 
-    return 0;
-    }
+    //return 0;
+    //}
 
-    void multiply_matrices(long matrix1[2][3], long matrix2[3][2], long result[2][2], int rows1, int cols1, int cols2) {
-    for (int i = 0; i < rows1; i++) {
-        for (int j = 0; j < cols2; j++) {
-            result[i][j] = 0; // Inicializar el valor en 0
-            for (int k = 0; k < cols1; k++) {
-                result[i][j] += matrix1[i][k] * matrix2[k][j];
-            }
-        }
-    }
+    //void multiply_matrices(long matrix1[2][3], long matrix2[3][2], long result[2][2], int rows1, int cols1, int cols2) {
+    //for (int i = 0; i < rows1; i++) {
+        //for (int j = 0; j < cols2; j++) {
+          //  result[i][j] = 0; // Inicializar el valor en 0
+            //for (int k = 0; k < cols1; k++) {
+              //  result[i][j] += matrix1[i][k] * matrix2[k][j];
+            //}
+        //}
+    //}
     }
 
     void print_matrix(long matrix[][2], int rows, int cols) {
@@ -71,7 +62,7 @@
     }
 
 
-## Programa en ARM64    
+  
                 // matrix_mult.s
                   .data
     // Primera matriz (2x3)
