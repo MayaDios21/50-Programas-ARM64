@@ -4,7 +4,7 @@
     // Descripción: Realiza una busqueda en fromato lineal
     // Autor: Diego Enrique Maya Lopez
     // Fecha: 07/11/2024
-    #include <stdio.h>
+    //include <stdio.h>
    // int main() {
     // Inicializar el arreglo y sus variables asociadas
     //long arreglo[] = {15, 7, 23, 9, 12, 3, 18, 45, 6, 11};
