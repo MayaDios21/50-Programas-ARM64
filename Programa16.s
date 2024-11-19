@@ -1,76 +1,67 @@
-## Diego Enrique Maya Lopez 
-## Programa 16 Ordenamiento burbuja
 
-## Video
-
-
-## Descripcion 
- Realiza un ordenamiento burbuja de un arreglo
-
-## Programa en C
     //============================================================
-    // Programa: 
-    // Descripción: 
+    // Programa: Ordenamiento burbuja
+    // Descripción: Se utiliza el ordenamiento burbuja para realizar un ordenamiento
     // Autor: Diego Enrique Maya Lopez
     // Fecha: 07/11/2024
-    #include <stdio.h>
+   // #include <stdio.h>
 
-    #define SIZE 10
+    //#define SIZE 10
 
-    void print_array(long *array, int n);
-    void bubble_sort(long *array, int n);
+    //void print_array(long *array, int n);
+    //void bubble_sort(long *array, int n);
 
-    int main() {
-    long array[SIZE] = {45, 23, 11, 15, 6, 18, 7, 3, 12, 9}; // Arreglo desordenado
+    //int main() {
+    //long array[SIZE] = {45, 23, 11, 15, 6, 18, 7, 3, 12, 9}; // Arreglo desordenado
 
     // Imprimir arreglo original
-    printf("Arreglo original: ");
-    print_array(array, SIZE);
+    //printf("Arreglo original: ");
+    //print_array(array, SIZE);
 
     // Ordenar el arreglo y mostrar los pasos
-    bubble_sort(array, SIZE);
+    //bubble_sort(array, SIZE);
 
     // Imprimir arreglo ordenado
-    printf("\nArreglo ordenado: ");
-    print_array(array, SIZE);
-    printf("\n");
+    //printf("\nArreglo ordenado: ");
+    //print_array(array, SIZE);
+    //printf("\n");
 
-    return 0;
-    }
+    //return 0;
+    //}
 
     // Función para imprimir el arreglo
-    void print_array(long *array, int n) {
-    for (int i = 0; i < n; i++) {
-        printf("%ld ", array[i]);
-    }
-    printf("\n");
-    }
+    //void print_array(long *array, int n) {
+    //for (int i = 0; i < n; i++) {
+      //  printf("%ld ", array[i]);
+    //}
+    //printf("\n");
+    //}
 
     // Función de ordenamiento por burbuja con impresión de pasos e intercambios
-    void bubble_sort(long *array, int n) {
-    int step = 1;
-    for (int i = 0; i < n - 1; i++) {
-        printf("\nPaso %d: ", step++);
+    //void bubble_sort(long *array, int n) {
+    //int step = 1;
+    //for (int i = 0; i < n - 1; i++) {
+      //  printf("\nPaso %d: ", step++);
 
-        for (int j = 0; j < n - i - 1; j++) {
-            if (array[j] > array[j + 1]) {
+        //for (int j = 0; j < n - i - 1; j++) {
+          //  if (array[j] > array[j + 1]) {
                 // Imprimir el intercambio
-                printf("\nIntercambiando posiciones %d y %d (%ld <-> %ld)\n", j, j + 1, array[j], array[j + 1]);
+            //    printf("\nIntercambiando posiciones %d y %d (%ld <-> %ld)\n", j, j + 1, array[j], array[j + 1]);
 
                 // Intercambiar los elementos
-                long temp = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = temp;
+                //long temp = array[j];
+              //  array[j] = array[j + 1];
+            //    array[j + 1] = temp;
 
                 // Imprimir el arreglo después de cada intercambio
-                print_array(array, n);
-            }
-        }
-    }
-    }
+          //      print_array(array, n);
+        //    }
+      //  }
+    //}
+    //}
 
 
-## Programa en ARM64   
+
     .data
     arreglo:    .quad   45, 23, 11, 15, 6, 18, 7, 3, 12, 9  // Arreglo desordenado
     longitud:   .quad   10                                   // Longitud del arreglo
